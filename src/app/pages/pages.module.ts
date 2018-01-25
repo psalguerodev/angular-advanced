@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+/* ===================[MODULES]====================== */
+import { SharedModule } from '../shared/shared.module';
+
+/* ===================[COMPONENTS]====================== */
 import { Grapth1Component } from './grapth1/grapth1.component';
 import { ProgressComponent } from './progress/progress.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
-import { SharedModule } from '../shared/shared.module';
+
+/* ===================[ROUTES]====================== */
+import { PAGES_ROUTES } from './pages.route';
 
 @NgModule({
   declarations : [
@@ -22,7 +28,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    PAGES_ROUTES
   ]
 })
 

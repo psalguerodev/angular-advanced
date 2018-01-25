@@ -1,6 +1,8 @@
+import { NgModule } from '@angular/core';
+
+/* ===================[COMPONENTS]====================== */
 import { BreadcrumComponent } from './breadcrum/breadcrum.component';
 import { NofoundComponent } from './nofound/nofound.component';
-import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { SidebardComponent } from './sidebard/sidebard.component';
 
