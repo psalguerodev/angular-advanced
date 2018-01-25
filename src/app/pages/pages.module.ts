@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 
 /* ===================[MODULES]====================== */
 import { SharedModule } from '../shared/shared.module';
@@ -28,6 +29,7 @@ import { PAGES_ROUTES } from './pages.route';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     SharedModule,
     PAGES_ROUTES
   ]
