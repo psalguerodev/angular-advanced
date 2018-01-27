@@ -16,6 +16,7 @@ import { PagesComponent } from './pages.component';
 import { PAGES_ROUTES } from './pages.route';
 import { IncrementComponent } from '../components/increment/increment.component';
 import { GraphdoughnutComponent } from './../components/graphdoughnut/graphdoughnut.component';
+import { AcountsettingsComponent } from './acountsettings/acountsettings.component';
 
 
 
@@ -26,15 +27,13 @@ import { GraphdoughnutComponent } from './../components/graphdoughnut/graphdough
     ProgressComponent,
     Grapth1Component,
     IncrementComponent,
-    GraphdoughnutComponent
+    GraphdoughnutComponent,
+    AcountsettingsComponent,
   ],
   exports : [
-    PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Grapth1Component,
-    IncrementComponent,
-    GraphdoughnutComponent
+    Grapth1Component
   ],
   imports: [
     CommonModule,
