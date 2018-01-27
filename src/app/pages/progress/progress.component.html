@@ -5,8 +5,16 @@
         <h5 class="card-title">Barra de Progreso</h5>
         <div class="progress">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-            aria-valuemax="100" [ngClass]="{'bg-success': percent == 100 , 'bg-danger': percent < 30 , 'bg-warning': percent > 30 && percent < 60 }" style="width: 75%" [attr.ariaValuenow]="percent" [style.width]="percent + '%'">
-            {{percent}}%
+            aria-valuemax="100" [ngClass]="{'bg-success': percent == 100 , 'bg-danger': percent <= 30 , 'bg-warning': percent > 30 && percent < 60 }"
+            style="width: 75%" [attr.ariaValuenow]="percent1" [style.width]="percent1 + '%'">
+            <span *ngIf="percent1 > 0">{{ percent1 }}%</span>
+          </div>
+        </div>
+        <br>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+            aria-valuemax="100" style="width: 75%" [attr.ariaValuenow]="percent2" [style.width]="percent2 + '%'">
+            <span *ngIf="percent2 > 0">{{ percent2 }}%</span>
           </div>
         </div>
       </div>
@@ -19,29 +27,14 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <button class="btn btn-info" type="button" (click)="processValue(-5)">
-              <i class="mdi mdi-minus"></i>
-            </button>
-          </div>
-          <input type="number" name="percent" max="100" min="0" [(ngModel)]="percent" class="form-control text-center" placeholder="Incrementar / Decrementar ">
-          <div class="input-group-append">
-            <button class="btn btn-info" type="button" (click)="processValue(+5)">
-              <i class="mdi mdi-plus"></i>
-            </button>
-          </div>
-        </div>
-        <br>
-        <pre>[attr.ariaValuenow]="percent"
-[style.width]="percent + '%'"</pre>
+        <app-increment [percent]="percent1" [leyend]="'Progress Azul '" (changepercent)=" percent1 = $event "></app-increment>
       </div>
     </div>
   </div>
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        Texto 2
+        <app-increment [percent]="percent2" [leyend]="'Progress Verde '" (changepercent)=" percent2 = $event "></app-increment>
       </div>
     </div>
   </div>

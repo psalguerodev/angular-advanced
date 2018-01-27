@@ -1,0 +1,17 @@
+<h3>{{ leyend }}</h3>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-info" type="button" (click)="processValue(-5)">
+      <i class="mdi mdi-minus"></i>
+    </button>
+  </div>
+  <input type="number" name="percent" #percentHtml max="100" min="1" [(ngModel)]="percent" (ngModelChange)="onChanges($event)" class="form-control text-center" placeholder="Incrementar / Decrementar ">
+  <div class="input-group-append">
+    <button class="btn btn-info" type="button" (click)="processValue(+5)">
+      <i class="mdi mdi-plus"></i>
+    </button>
+  </div>
+</div>
+<br>
+<pre>[attr.ariaValuenow]="percent"
+[style.width]="percent + '%'"</pre>

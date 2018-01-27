@@ -13,19 +13,24 @@ import { PagesComponent } from './pages.component';
 
 /* ===================[ROUTES]====================== */
 import { PAGES_ROUTES } from './pages.route';
+import { IncrementComponent } from '../components/increment/increment.component';
+
+
 
 @NgModule({
   declarations : [
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Grapth1Component
+    Grapth1Component,
+    IncrementComponent
   ],
   exports : [
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Grapth1Component
+    Grapth1Component,
+    IncrementComponent
   ],
   imports: [
     CommonModule,

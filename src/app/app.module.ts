@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 /* ===================[MODULES]====================== */
 import { PagesModule } from './pages/pages.module';
 
@@ -11,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 
 /* ===================[ROUTES]====================== */
 import { APP_ROUTES } from './app.routes';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { APP_ROUTES } from './app.routes';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     APP_ROUTES,
     PagesModule
   ],

@@ -6,26 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ProgressComponent implements OnInit {
+  percent1 : number = 50;
+  percent2 : number = 23;
 
-  percent : number = 50;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  processValue(value :number ){
-    if( this.percent >= 100 && value > 0 ){
-      this.percent = 100;
-      return;
-    }
-    if( this.percent <= 0  ){
-      this.percent = 0;
-    }
-
-    this.percent += value;
+  changeProgress( event : number ){
+    console.log( event );
   }
-
 
 
 }
