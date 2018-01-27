@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'
 
 /* ===================[MODULES]====================== */
 import { SharedModule } from '../shared/shared.module';
+import { ChartsModule } from 'ng2-charts';
 
 /* ===================[COMPONENTS]====================== */
 import { Grapth1Component } from './grapth1/grapth1.component';
@@ -14,6 +15,7 @@ import { PagesComponent } from './pages.component';
 /* ===================[ROUTES]====================== */
 import { PAGES_ROUTES } from './pages.route';
 import { IncrementComponent } from '../components/increment/increment.component';
+import { GraphdoughnutComponent } from './../components/graphdoughnut/graphdoughnut.component';
 
 
 
@@ -23,20 +25,23 @@ import { IncrementComponent } from '../components/increment/increment.component'
     DashboardComponent,
     ProgressComponent,
     Grapth1Component,
-    IncrementComponent
+    IncrementComponent,
+    GraphdoughnutComponent
   ],
   exports : [
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
     Grapth1Component,
-    IncrementComponent
+    IncrementComponent,
+    GraphdoughnutComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
-    PAGES_ROUTES
+    PAGES_ROUTES,
+    ChartsModule
   ]
 })
 

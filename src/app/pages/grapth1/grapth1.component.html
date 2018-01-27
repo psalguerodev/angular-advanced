@@ -1,3 +1,35 @@
-<p>
-  grapth1 works!
-</p>
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <app-graphdoughnut [leyend]="graficos.grafico1.leyenda" [dataChart]="graficos.grafico1.data" [labelsChart]="graficos.grafico1.labels" ></app-graphdoughnut>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <app-graphdoughnut [leyend]="graficos.grafico2.leyenda" [dataChart]="graficos.grafico2.data" [labelsChart]="graficos.grafico2.labels" ></app-graphdoughnut>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <app-graphdoughnut [leyend]="graficos.grafico3.leyenda" [dataChart]="graficos.grafico3.data" [labelsChart]="graficos.grafico3.labels" ></app-graphdoughnut>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <app-graphdoughnut [leyend]="graficos.grafico4.leyenda" [dataChart]="graficos.grafico4.data" [labelsChart]="graficos.grafico4.labels" ></app-graphdoughnut>
+      </div>
+    </div>
+  </div>
+</div>
