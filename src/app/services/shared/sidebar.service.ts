@@ -18,6 +18,10 @@ export class SidebarService {
       {
         title : 'Graficas',
         path  : '/graphone'
+      },
+      {
+        title : 'Promesas',
+        path  : '/promises'
       }
     ]
   }]
