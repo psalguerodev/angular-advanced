@@ -3,23 +3,23 @@ import { DOCUMENT } from '@angular/platform-browser';
 
 @Injectable()
 export class SettingsService {
-  
-  setting : Setting = {
+
+  setting: Setting = {
     theme : "blue",
     themeUrl : "assets/css/colors/blue.css"
   }
 
-  private stringSetting = "settingAdm";
-  
+  private stringSetting = 'settingAdm';
+
   constructor( @Inject(DOCUMENT) private _document ) {
     this.getStorageSetting();
    }
 
-  storageSetting(){
+  storageSetting() {
     localStorage.setItem( this.stringSetting , JSON.stringify( this.setting ));
   }
 
-  getStorageSetting(){
+  getStorageSetting() {
     if( localStorage.getItem(this.stringSetting )){
       this.setting = JSON.parse( localStorage.getItem( this.stringSetting ) ) ;
       console.log( 'Se ha encontrado theme : ' , this.setting );
@@ -29,7 +29,7 @@ export class SettingsService {
     console.log( 'Default theme : ' , this.setting );
   }
 
-  applySetting( theme : string ){
+  applySetting( theme: string ) {
     const pathCss = "assets/css/colors/"+ theme +".css";
     this._document.getElementById("theme").setAttribute('href' , pathCss );
     this.setting = { theme : theme , themeUrl : pathCss };
@@ -37,7 +37,7 @@ export class SettingsService {
   }
 }
 
-interface Setting{
-  themeUrl : string ,
-  theme    : string 
+interface Setting {
+  themeUrl: string ,
+  theme: string
 }

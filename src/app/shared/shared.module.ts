@@ -5,6 +5,8 @@ import { BreadcrumComponent } from './breadcrum/breadcrum.component';
 import { NofoundComponent } from './nofound/nofound.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebardComponent } from './sidebard/sidebard.component';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations:[
@@ -12,6 +14,10 @@ import { SidebardComponent } from './sidebard/sidebard.component';
     NofoundComponent,
     BreadcrumComponent,
     SidebardComponent
+  ],
+  imports:[
+    RouterModule,
+    CommonModule
   ],
   exports:[
     HeaderComponent,
