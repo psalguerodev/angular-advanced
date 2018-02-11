@@ -14,13 +14,13 @@ export class IncrementComponent implements OnInit {
 
 
   constructor() {
-    console.log( this.percent );
-    console.log( this.leyend );
+    // console.log( this.percent );
+    // console.log( this.leyend );
   }
 
   ngOnInit() {
-    console.log( this.percent );
-    console.log( this.leyend );
+    // console.log( this.percent );
+    // console.log( this.leyend );
   }
 
   processValue(value :number ){
@@ -38,19 +38,19 @@ export class IncrementComponent implements OnInit {
   }
 
   onChanges( event : number ){
-   
+
     if( event >= 100 ) {
-      this.percent = 100; 
+      this.percent = 100;
     }
     else if ( event <= 0) {
       this.percent = 0;
     } else{
       this.percent = event;
-    } 
+    }
 
     this.percentHtml.nativeElement.value = this.percent;
 
-    console.log( event );
+    // console.log( event );
     this.changepercent.emit(  this.percent );
 
     this.percentHtml.nativeElement.focus();

@@ -7,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PromisesComponent implements OnInit {
 
+  public data : string = "";
+
   constructor() {
 
     this.promesaFn().then(( result ) => {
       console.info( 'Terminó proceso !' , result );
+      this.data = 'Terminó proceso !!  --> '  + result;
     }).catch( error => console.error( 'Error en el Proceso ' , error ) );
 
   }

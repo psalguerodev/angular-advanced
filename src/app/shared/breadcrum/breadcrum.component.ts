@@ -1,15 +1,41 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivationEnd } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { Meta , MetaDefinition } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-breadcrum',
   templateUrl: './breadcrum.component.html',
   styles: []
 })
-export class BreadcrumComponent implements OnInit {
+export class BreadcrumComponent {
 
-  constructor() { }
+  public titleBreadcrum : string = "";
 
-  ngOnInit() {
+  constructor( private _router : Router,
+               private _title : Title ,
+               private _meta : Meta) {
+
+    this.getDataRoute()
+    .subscribe( data => {
+      console.log( data.title );
+      this.titleBreadcrum = data.title;
+      this._title.setTitle( 'Adm Pro |' +this.titleBreadcrum );
+      let metaTag  : MetaDefinition = {
+        name: 'description',
+        content: this.titleBreadcrum
+      };
+      this._meta.updateTag( metaTag );
+
+    });
+
+  }
+
+  getDataRoute() {
+    return this._router.events
+      .filter( event => ( event instanceof ActivationEnd ) )
+      .filter( (event: ActivationEnd) => ( event.snapshot.firstChild === null ) )
+      .map( (event: ActivationEnd) => event.snapshot.data );
   }
 
 }

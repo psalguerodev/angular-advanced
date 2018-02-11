@@ -22,6 +22,10 @@ export class SidebarService {
       {
         title : 'Promesas',
         path  : '/promises'
+      },
+      {
+        title : 'Observables Rxjs',
+        path  : '/rxjs'
       }
     ]
   }]

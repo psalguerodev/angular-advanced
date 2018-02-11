@@ -17,7 +17,8 @@ import { PAGES_ROUTES } from './pages.route'
 import { IncrementComponent } from '../components/increment/increment.component'
 import { GraphdoughnutComponent } from './../components/graphdoughnut/graphdoughnut.component'
 import { AcountsettingsComponent } from './acountsettings/acountsettings.component';
-import { PromisesComponent } from './promises/promises.component'
+import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component'
 
 
 
@@ -31,6 +32,7 @@ import { PromisesComponent } from './promises/promises.component'
     GraphdoughnutComponent,
     AcountsettingsComponent,
     PromisesComponent,
+    RxjsComponent,
   ],
   exports : [
     DashboardComponent,

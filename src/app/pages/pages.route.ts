@@ -1,3 +1,4 @@
+import { RxjsComponent } from './rxjs/rxjs.component';
 import { RouterModule , Routes } from '@angular/router';
 import { Grapth1Component } from './grapth1/grapth1.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -11,11 +12,12 @@ const pagesRoutes : Routes = [
     path: '' ,
     component : PagesComponent ,
     children: [
-      { path: 'dashboard' ,    component : DashboardComponent },
-      { path: 'progress' ,     component: ProgressComponent },
-      { path: 'graphone' ,     component: Grapth1Component },
-      { path: 'promises' ,     component: PromisesComponent},
-      { path: 'account-settings' ,     component: AcountsettingsComponent },
+      { path: 'dashboard' ,    component : DashboardComponent , data: { title: 'Dashboard' } },
+      { path: 'progress' ,     component: ProgressComponent  ,  data: { title: 'Progress' } },
+      { path: 'graphone' ,     component: Grapth1Component   ,  data: { title: 'Encuestas Gráficas'} } ,
+      { path: 'promises' ,     component: PromisesComponent  ,  data: { title: 'Promesas' } },
+      { path: 'rxjs' ,         component: RxjsComponent      ,  data: { title: 'Rxjs' } },
+      { path: 'account-settings' ,     component: AcountsettingsComponent, data: { title: 'Ajustes de Tema'} },
       { path : '', redirectTo: '/dashboard' , pathMatch: 'full'},
     ]
   },
