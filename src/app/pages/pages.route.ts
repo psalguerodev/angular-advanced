@@ -1,3 +1,4 @@
+import { LoginGuardGuard } from './../services/service.index';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { RouterModule , Routes } from '@angular/router';
 import { Grapth1Component } from './grapth1/grapth1.component';
@@ -11,6 +12,7 @@ const pagesRoutes : Routes = [
   {
     path: '' ,
     component : PagesComponent ,
+    canActivate : [ LoginGuardGuard ],
     children: [
       { path: 'dashboard' ,    component : DashboardComponent , data: { title: 'Dashboard' } },
       { path: 'progress' ,     component: ProgressComponent  ,  data: { title: 'Progress' } },

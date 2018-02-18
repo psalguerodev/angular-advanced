@@ -18,9 +18,9 @@ export class BreadcrumComponent {
 
     this.getDataRoute()
     .subscribe( data => {
-      console.log( data.title );
+      // console.log( data.title );
       this.titleBreadcrum = data.title;
-      this._title.setTitle( 'Adm Pro |' +this.titleBreadcrum );
+      this._title.setTitle( 'Adm Pro |' + (this.titleBreadcrum || 'Angular Pro') );
       let metaTag  : MetaDefinition = {
         name: 'description',
         content: this.titleBreadcrum

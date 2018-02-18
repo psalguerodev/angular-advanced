@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 /* ===================[MODULES]====================== */
@@ -12,7 +13,6 @@ import { RegisterComponent } from './register/register.component';
 
 /* ===================[ROUTES]====================== */
 import { APP_ROUTES } from './app.routes';
-import { FormsModule } from '@angular/forms';
 
 /* ===================[SERVICES]====================== */
 import { SerivceModule } from './services/serivce.module';
@@ -28,7 +28,8 @@ import { SerivceModule } from './services/serivce.module';
   imports: [
     BrowserModule,
     FormsModule,
-    
+    ReactiveFormsModule,
+
     APP_ROUTES,
     PagesModule,
     SerivceModule

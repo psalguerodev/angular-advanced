@@ -4,7 +4,7 @@
 <section id="wrapper" class="login-register login-sidebar" style="background-image:url(assets/images/background/lg.png);">
   <div class="login-box card">
     <div class="card-body">
-      <form class="form-horizontal form-material" (ngSubmit)="loginProcess()">
+      <form ngNativeValidate #form="ngForm"  class="form-horizontal form-material" (ngSubmit)="loginProcess( form )">
         <a href="javascript:void(0)" class="text-center db">
           <img src="assets/images/logo-icon.png" alt="Home" />
           <br/>
@@ -12,18 +12,18 @@
         </a>
         <div class="form-group m-t-40">
           <div class="col-xs-12">
-            <input class="form-control" type="text"  placeholder="Usuario">
+            <input [ngModel]="email" name="email" class="form-control" type="email"  placeholder="Correo eletrónico" required>
           </div>
         </div>
         <div class="form-group">
           <div class="col-xs-12">
-            <input class="form-control" type="password"  placeholder="Contraseña">
+            <input ngModel name="password" class="form-control" type="password"  placeholder="Contraseña" required>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-12">
             <div class="checkbox checkbox-primary pull-left p-t-0">
-              <input id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
+              <input [(ngModel)]="remember" name="remember" id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
               <label for="checkbox-signup"> Recordar </label>
             </div>
             <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right">
@@ -38,12 +38,12 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
             <div class="social">
-              <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook">
+              <!-- <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook">
                 <i aria-hidden="true" class="fa fa-facebook"></i>
-              </a>
-              <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google">
-                <i aria-hidden="true" class="fa fa-google-plus"></i>
-              </a>
+              </a> -->
+              <button type="button" id="btnGoogle" class="btn btn-googleplus" align="center" data-toggle="tooltip" title="Login con Google Sign In">
+                <i aria-hidden="true" class="fa fa-google-plus"></i> Google Sign in
+              </button>
             </div>
           </div>
         </div>
