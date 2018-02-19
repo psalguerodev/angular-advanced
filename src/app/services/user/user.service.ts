@@ -1,3 +1,4 @@
+import { UploadService } from './../upload/upload.service';
 import { Injectable } from '@angular/core'
 import { User } from '../../models/user.model'
 import { HttpClient } from '@angular/common/http'
@@ -14,7 +15,8 @@ export class UserService {
   public user : User = null
   public token : string = ''
 
-  constructor( private http: HttpClient , private _router : Router ) {
+  constructor( private http: HttpClient , private _router : Router,
+  private _uploadService : UploadService ) {
     this.loadStorage()
   }
 
@@ -100,6 +102,32 @@ export class UserService {
   public loadStorage () {
     this.token = ( localStorage.getItem('current_user_token') ) || ''
     this.user  = ( JSON.parse(localStorage.getItem('current_user'))) || null
+  }
+
+  // ==========================================
+  // Actualizar perfil del usuario
+  // ==========================================
+  public updateUser( user : User ) {
+    let url = URL_SERIVES +"/user/" + user._id + "?token=" + this.token
+
+    return this.http.put( url , user ).map( (result : any ) => {
+      this.saveStorageUser( result.user._id , result.user , this.token )
+      swal("Fantástico","Actualizaste tus datos " + result.user.name ,"success")
+      return true
+    })
+  }
+
+  // ==========================================
+  // Actualizar la foto del perfil de usuario
+  // ==========================================
+  public updatePictureProfile( file : File , id : string ) {
+    this._uploadService.uploadFile( file , "users" , id )
+        .then( (result : any) => {
+          swal("Fantastico!", "Imagen de perfil actualizado correctamente", "success")
+          this.user.img = result.user.img
+          this.saveStorageUser( this.user._id , this.user , this.token )
+        })
+        .catch( err => { console.log( err ) })
   }
 
 }

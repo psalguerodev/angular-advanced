@@ -19,6 +19,10 @@ import { GraphdoughnutComponent } from './../components/graphdoughnut/graphdough
 import { AcountsettingsComponent } from './acountsettings/acountsettings.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component'
+import { ProfileComponent } from './profile/profile.component';
+
+/* ===================[PIPES]====================== */
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -33,6 +37,7 @@ import { RxjsComponent } from './rxjs/rxjs.component'
     AcountsettingsComponent,
     PromisesComponent,
     RxjsComponent,
+    ProfileComponent,
   ],
   exports : [
     DashboardComponent,
@@ -44,7 +49,8 @@ import { RxjsComponent } from './rxjs/rxjs.component'
     FormsModule,
     SharedModule,
     PAGES_ROUTES,
-    ChartsModule
+    ChartsModule,
+    PipesModule
   ]
 })
 

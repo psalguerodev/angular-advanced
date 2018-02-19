@@ -8,13 +8,13 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="assets/images/users/profile.png" alt="user" /><span class="hide-menu">Patrick Salguero </span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                      <img [src]="user.img | image" alt="user" />
+                      <span class="hide-menu">{{ user.name }}</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void()">My Profile </a></li>
-                        <li><a href="javascript:void()">My Balance</a></li>
-                        <li><a href="javascript:void()">Inbox</a></li>
+                        <li><a routerLinkActive="active" routerLink="/profile">Mi perfil</a></li>
                         <li><a routerLinkActive='active' routerLink="/account-settings">Configuraciones</a></li>
-                        <li><a (click)="logoutUser()" >Cerrar Sesión</a></li>
+                        <li><a style="cursor: pointer" (click)="logoutUser()" >Cerrar Sesión</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider"></li>

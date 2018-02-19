@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-lg-7">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Datos Personales</h4>
+        <h6 class="card-subtitle">{{ user.name }}</h6>
+        <form ngNativeValidate #f="ngForm" (ngSubmit)="updateUser( f.value )" class="form p-t-20">
+          <div class="form-group">
+            <label for="exampleInputuname">Nombre completo</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="ti-user"></i>
+              </div>
+              <input [ngModel]="user.name" name="name" type="text" class="form-control" placeholder="Ingresa tu nombre" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Correo Electrónico</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="ti-email"></i>
+              </div>
+              <input type="email" name="email" [readOnly]="user.google"  [ngModel]="user.email"
+              class="form-control" placeholder="Ingresa tu correo" required>
+            </div>
+          </div>
+          <button type="submit" class="pull-right btn btn-info waves-effect waves-light m-r-10">
+           <i class="fa fa-save"></i> Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="card">
+      <div class="card-body" align="center">
+        <h4 class="card-title">Imagen</h4>
+        <h6 class="card-subtitle">Cambiar imagen del Perfil</h6>
+
+          <img *ngIf="!imageTemp" width="145px"  [src]="user.img | image" alt="" class="img img-circle" >
+          <img *ngIf="imageTemp" width="145px"  [src]="imageTemp" alt="" class="img img-circle">
+
+          <br> <br>
+
+        <input type="file" name="imageUpload" (change)="changeFileUpload( $event.target.files[0] )" >
+
+        <br><br>
+
+        <button [disabled]="!imageUpload" (click)="uplodadImageProfile()" type="button"  class="btn btn-block btn-info waves-effect waves-light m-r-10">
+            <i class="fa fa-image"></i> Subir imagen
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

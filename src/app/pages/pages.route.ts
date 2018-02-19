@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { AcountsettingsComponent } from './acountsettings/acountsettings.component';
 import { PromisesComponent } from './promises/promises.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const pagesRoutes : Routes = [
   {
@@ -15,6 +16,7 @@ const pagesRoutes : Routes = [
     canActivate : [ LoginGuardGuard ],
     children: [
       { path: 'dashboard' ,    component : DashboardComponent , data: { title: 'Dashboard' } },
+      { path: 'profile' ,    component : ProfileComponent , data: { title: 'Perfil' } },
       { path: 'progress' ,     component: ProgressComponent  ,  data: { title: 'Progress' } },
       { path: 'graphone' ,     component: Grapth1Component   ,  data: { title: 'Encuestas Gráficas'} } ,
       { path: 'promises' ,     component: PromisesComponent  ,  data: { title: 'Promesas' } },
