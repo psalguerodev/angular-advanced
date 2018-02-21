@@ -20,6 +20,8 @@ import { AcountsettingsComponent } from './acountsettings/acountsettings.compone
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component'
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
+import { UploadComponent } from '../components/upload/upload.component';
 
 /* ===================[PIPES]====================== */
 import { PipesModule } from '../pipes/pipes.module';
@@ -38,6 +40,8 @@ import { PipesModule } from '../pipes/pipes.module';
     PromisesComponent,
     RxjsComponent,
     ProfileComponent,
+    UsersComponent,
+    UploadComponent
   ],
   exports : [
     DashboardComponent,

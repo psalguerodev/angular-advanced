@@ -13,7 +13,7 @@ export class LoginGuardGuard implements CanActivate {
 
   canActivate(): boolean {
     if( this._userS.isLogued() ) {
-      console.log( 'Acceso concedido!!' )
+      // console.log( 'Acceso concedido!!' )
       return true
     }
     console.error( '>> Acceso denegado <<' )

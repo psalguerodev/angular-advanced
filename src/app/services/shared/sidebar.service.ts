@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core'
 @Injectable()
 export class SidebarService {
 
-  public menu : any = [{
+  public menu : any = [
+  {
     title : 'Principal',
     icon  : 'mdi mdi-gauge',
     submenu : [
@@ -26,12 +27,30 @@ export class SidebarService {
       {
         title : 'Observables Rxjs',
         path  : '/rxjs'
+      },
+    ]
+  },
+  {
+    //Mantenimientos
+    title : 'Mantenimientos',
+    icon : 'mdi mdi-folder-lock-open',
+    submenu : [
+      {
+        title : 'Usuarios',
+        path : '/users'
+      },
+      {
+        title : 'Hospitales',
+        path: '/hospitals'
+      },
+      {
+        title: 'Doctores',
+        path : '/doctors'
       }
     ]
-  }]
+  }
+]
 
   constructor() { }
-
-
 
 }

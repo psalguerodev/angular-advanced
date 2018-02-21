@@ -8,6 +8,7 @@ export class ImagePipe implements PipeTransform {
 
   transform( img : string , collection : string = 'users'): any {
     let url = URL_SERIVES + "/image/"
+
     //	Obtener la imagen por defecto en caso no tenga imagen asociada
     if( !img ) {
       return url + "users/default"

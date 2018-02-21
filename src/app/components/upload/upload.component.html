@@ -1,0 +1,30 @@
+<!-- Modal para subir archivos (Component) -->
+<div class="dark-background animated fadeIn" [ngClass]="_modalUploadService.none">
+  <div class="modal" style="display:block" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Actualizar imagen</h5>
+          <button type="button" class="close"  aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+
+
+          <img *ngIf="!imageTemp" width="145px"  [src]="'default-image' | image" alt="" class="img img-circle" >
+          <img *ngIf="imageTemp" width="145px"  [src]="imageTemp" alt="" class="img img-circle">
+
+          <br> <br>
+
+          <input type="file" name="imageUpload" (change)="changeFileUpload( $event.target.files[0] )" >
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" [disabled]="imageTemp == null" (click)="uploadFile()">Guardar</button>
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

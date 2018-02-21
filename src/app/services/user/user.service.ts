@@ -81,7 +81,7 @@ export class UserService {
   // ==========================================
   // Guadar datos principales en LocalStorage
   // ==========================================
-  private saveStorageUser( id : string , user : User , token : string ) {
+  public saveStorageUser( id : string , user : User , token : string ) {
     localStorage.setItem( 'current_user_id' , id )
     localStorage.setItem( 'current_user_token' , token )
     localStorage.setItem( 'current_user' , JSON.stringify( user ) )
@@ -111,7 +111,9 @@ export class UserService {
     let url = URL_SERIVES +"/user/" + user._id + "?token=" + this.token
 
     return this.http.put( url , user ).map( (result : any ) => {
-      this.saveStorageUser( result.user._id , result.user , this.token )
+      if( this.user._id === user._id ){
+        this.saveStorageUser( result.user._id , result.user , this.token )
+      }
       swal("Fantástico","Actualizaste tus datos " + result.user.name ,"success")
       return true
     })
@@ -128,6 +130,31 @@ export class UserService {
           this.saveStorageUser( this.user._id , this.user , this.token )
         })
         .catch( err => { console.log( err ) })
+  }
+
+
+  // ==========================================
+  // Listar usuarios paginados
+  // ==========================================
+  public getListUsers( page: number = 0 ) {
+    const url = URL_SERIVES + "/user?since=" + page
+    return this.http.get( url )
+  }
+
+  // ==========================================
+  // Buscar usuarios por termino
+  // ==========================================
+  public findUserByTerm( findText : string ) {
+    const url = URL_SERIVES + "/seeker/collection/users/" + findText
+    return this.http.get( url )
+  }
+
+  // ==========================================
+  // Eliminar un usuario por ID
+  // ==========================================
+  public deleteUserById( user : User ) {
+    const url = URL_SERIVES + "/user/" + user._id + "?token=" + this.token
+    return this.http.delete( url )
   }
 
 }

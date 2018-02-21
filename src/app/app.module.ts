@@ -15,14 +15,14 @@ import { RegisterComponent } from './register/register.component'
 import { APP_ROUTES } from './app.routes'
 
 /* ===================[SERVICES]====================== */
-import { SerivceModule } from './services/serivce.module'
+import { SerivceModule } from './services/serivce.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

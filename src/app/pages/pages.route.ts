@@ -8,6 +8,7 @@ import { PagesComponent } from './pages.component';
 import { AcountsettingsComponent } from './acountsettings/acountsettings.component';
 import { PromisesComponent } from './promises/promises.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
 
 const pagesRoutes : Routes = [
   {
@@ -22,6 +23,10 @@ const pagesRoutes : Routes = [
       { path: 'promises' ,     component: PromisesComponent  ,  data: { title: 'Promesas' } },
       { path: 'rxjs' ,         component: RxjsComponent      ,  data: { title: 'Rxjs' } },
       { path: 'account-settings' ,     component: AcountsettingsComponent, data: { title: 'Ajustes de Tema'} },
+
+      //	Rutas personalizadas del Sistema
+      { path: 'users' ,     component: UsersComponent, data: { title: 'Mantenimiento de Usuarios'} },
+
       { path : '', redirectTo: '/dashboard' , pathMatch: 'full'},
     ]
   },
