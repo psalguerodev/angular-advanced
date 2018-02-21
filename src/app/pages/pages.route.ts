@@ -9,6 +9,7 @@ import { AcountsettingsComponent } from './acountsettings/acountsettings.compone
 import { PromisesComponent } from './promises/promises.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
+import { HospitalsComponent } from './hospitals/hospitals.component';
 
 const pagesRoutes : Routes = [
   {
@@ -26,6 +27,7 @@ const pagesRoutes : Routes = [
 
       //	Rutas personalizadas del Sistema
       { path: 'users' ,     component: UsersComponent, data: { title: 'Mantenimiento de Usuarios'} },
+      { path: 'hospitals' ,     component: HospitalsComponent, data: { title: 'Mantenimiento de Hospitales'} },
 
       { path : '', redirectTo: '/dashboard' , pathMatch: 'full'},
     ]

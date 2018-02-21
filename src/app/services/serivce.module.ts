@@ -5,10 +5,12 @@ import { LoginGuardGuard ,
          SidebarService,
          SharedService ,
          UserService ,
-         UploadService
+         UploadService,
+         HospitalService
         } from './service.index'
 import { HttpClientModule } from '@angular/common/http'
 import { ModalUploadService } from '../components/upload/modal-upload.service';
+
 
 @NgModule({
   imports: [
@@ -22,7 +24,8 @@ import { ModalUploadService } from '../components/upload/modal-upload.service';
     UserService,
     UploadService,
     LoginGuardGuard,
-    ModalUploadService
+    ModalUploadService,
+    HospitalService
   ],
   declarations: []
 })

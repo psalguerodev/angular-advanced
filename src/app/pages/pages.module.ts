@@ -25,6 +25,7 @@ import { UploadComponent } from '../components/upload/upload.component';
 
 /* ===================[PIPES]====================== */
 import { PipesModule } from '../pipes/pipes.module';
+import { HospitalsComponent } from './hospitals/hospitals.component';
 
 
 
@@ -41,7 +42,8 @@ import { PipesModule } from '../pipes/pipes.module';
     RxjsComponent,
     ProfileComponent,
     UsersComponent,
-    UploadComponent
+    UploadComponent,
+    HospitalsComponent
   ],
   exports : [
     DashboardComponent,
