@@ -9,7 +9,7 @@ export class ModalUploadService {
   public notification  = new EventEmitter<any>()
 
   constructor() {
-    console.log( 'ModalUploadService Run!' )
+
   }
 
   // ==========================================

@@ -22,12 +22,12 @@ export class SettingsService {
   getStorageSetting() {
     if( localStorage.getItem(this.stringSetting )) {
       this.setting = JSON.parse( localStorage.getItem( this.stringSetting ) ) ;
-      console.log( 'Se ha encontrado theme : ' , this.setting );
+      // console.log( 'Se ha encontrado theme : ' , this.setting );
       this.applySetting( this.setting.theme );
       return;
     }
     this.applySetting( this.setting.theme );
-    console.log( 'Default theme : ' , this.setting );
+    // console.log( 'Default theme : ' , this.setting );
   }
 
   applySetting( theme: string ) {
