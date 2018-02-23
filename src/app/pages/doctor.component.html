@@ -1,0 +1,51 @@
+<div class="row">
+
+  <!-- Formulario del Doctor -->
+  <div class="col-md-6">
+    <div class="card card-body">
+      <h3 class="box-title m-b-0">Doctor: </h3>
+      <p class="text-muted m-b-30 font-13">{{ title }}</p>
+      <div class="row">
+        <div class="col-sm-12 col-xs-12">
+          <form #form="ngForm" ngNativeValidate (ngSubmit)="saveDoc( form )">
+            <div class="form-group">
+              <label for="">Nombre del Doctor</label>
+              <input type="text" class="form-control" name="name" [(ngModel)]="doctor.name" id="" placeholder="Ingrese el nombre del Doctor" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+              <label for="">Hospital</label>
+              <select (change)="hospitalSelect( $event.target.value )" name="hospital" [(ngModel)]="doctor.hospital" id="" class="form-control" required >
+                <option value="">[-- Seleccionar --]</option>
+                <option [value]="hospital._id" *ngFor="let hospital of hospitals">{{ hospital.name }}</option>
+              </select>
+            </div>
+            <button type="submit"  class="btn btn-success waves-effect waves-light m-r-10">
+              <i class="fa fa-save"></i> Guardar
+            </button>
+            <button type="button" routerLink="/doctors" class="btn btn-inverse waves-effect waves-light">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Datos del Hospital -->
+  <div class="col-md-3 animated fadeIn" >
+    <div class="card card-body" align="center">
+        <h4 class="box-title m-b-0">Hospital </h4>
+        <br>
+        <p class="text-primary" *ngIf="hospital.name.length > 0">{{ hospital.name }}</p>
+        <p class="text-primary" *ngIf="hospital.name.length == 0">Hospital no seleccionado</p>
+
+        <img [src]="hospital.img | image : 'hospitals' " [alt]="hospital.name" class="img img-circle" width="145px">
+    </div>
+  </div>
+
+  <!-- Imagen del Doctor -->
+  <div class="col-md-3" *ngIf="doctor._id">
+    <div class="card card-body">
+      <h4 class="box-title m-b-0">Fotografía </h4>
+    </div>
+  </div>
+
+</div>

@@ -22,10 +22,12 @@ import { RxjsComponent } from './rxjs/rxjs.component'
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { UploadComponent } from '../components/upload/upload.component';
+import { HospitalsComponent } from './hospitals/hospitals.component';
+import { DoctorsComponent } from './doctors/doctors.component';
 
 /* ===================[PIPES]====================== */
 import { PipesModule } from '../pipes/pipes.module';
-import { HospitalsComponent } from './hospitals/hospitals.component';
+import { DoctorComponent } from './doctor.component';
 
 
 
@@ -43,7 +45,9 @@ import { HospitalsComponent } from './hospitals/hospitals.component';
     ProfileComponent,
     UsersComponent,
     UploadComponent,
-    HospitalsComponent
+    HospitalsComponent,
+    DoctorsComponent,
+    DoctorComponent
   ],
   exports : [
     DashboardComponent,

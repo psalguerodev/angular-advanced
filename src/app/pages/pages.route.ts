@@ -1,3 +1,4 @@
+import { DoctorComponent } from './doctor.component';
 import { LoginGuardGuard } from './../services/service.index';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { RouterModule , Routes } from '@angular/router';
@@ -10,6 +11,7 @@ import { PromisesComponent } from './promises/promises.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
+import { DoctorsComponent } from './doctors/doctors.component';
 
 const pagesRoutes : Routes = [
   {
@@ -28,6 +30,8 @@ const pagesRoutes : Routes = [
       //	Rutas personalizadas del Sistema
       { path: 'users' ,     component: UsersComponent, data: { title: 'Mantenimiento de Usuarios'} },
       { path: 'hospitals' ,     component: HospitalsComponent, data: { title: 'Mantenimiento de Hospitales'} },
+      { path: 'doctors' ,     component: DoctorsComponent, data: { title: 'Mantenimiento de Doctores'} },
+      { path: 'doctor/:id' ,     component: DoctorComponent, data: { title: 'Mantenimiento del Doctor'} },
 
       { path : '', redirectTo: '/dashboard' , pathMatch: 'full'},
     ]
@@ -35,4 +39,3 @@ const pagesRoutes : Routes = [
 ]
 
 export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes );
-

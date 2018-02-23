@@ -6,7 +6,8 @@ import { LoginGuardGuard ,
          SharedService ,
          UserService ,
          UploadService,
-         HospitalService
+         HospitalService,
+         DoctorService
         } from './service.index'
 import { HttpClientModule } from '@angular/common/http'
 import { ModalUploadService } from '../components/upload/modal-upload.service';
@@ -25,7 +26,8 @@ import { ModalUploadService } from '../components/upload/modal-upload.service';
     UploadService,
     LoginGuardGuard,
     ModalUploadService,
-    HospitalService
+    HospitalService,
+    DoctorService
   ],
   declarations: []
 })

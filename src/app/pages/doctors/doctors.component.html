@@ -1,0 +1,66 @@
+<!-- Buscador de Doctores -->
+<div class="row animated fadeIn">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+
+        <!-- Buscador -->
+        <input (keyup)="findDocByText(finder.value , $event)" #finder  type="text" name="finder" id="finder" class="form-control" placeholder="Ingresa la palbra que deseas buscar">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cargador de datos -->
+<div class="row animated fadeIn" *ngIf="loading">
+  <div class="col-12">
+    <div class="alert alert-info text-center">
+      <strong>Cargando...</strong> <br>
+      <i class="fa fa-refresh fa-spin fa-1x"></i> <br>
+      <span>Por favor espere</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- Tabla de Datos -->
+<div class="row animated" *ngIf="!loading">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div>
+            <h3 class="card-title pull-left">Doctores registrados <sup class="label label-rouded label-themecolor">{{ _doctorService.total }}</sup></h3>
+            <button type="button" class="btn btn-primary pull-right" [routerLink]="['/doctor', 'nuevo']">
+              <i class="fa fa-plus"></i> Nuevo Doctor
+            </button>
+        </div>
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Doctor</th>
+              <th>Hospital</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doctor of doctors">
+              <td class="w70">
+                <img [src]="doctor.img | image : 'doctors' " [alt]="doctor.name" class="cursor img img-responsive img-circle img-grid">
+              </td>
+              <td>{{ doctor.name }}</td>
+              <td>{{ doctor.hospital?.name }}</td>
+              <td>
+                <button [routerLink]="['/doctor', doctor._id ]" type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                <button (click)="deleteDoct( doctor)" type="button"  class="btn btn-danger"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
