@@ -66,15 +66,18 @@ export class UploadComponent implements OnInit {
         this._modalUploadService.id ).then( (result : any) => {
           //	En caso la actualizacion sea del mismo usuario
           if( this._modalUploadService.collection == 'users' ) {
+            console.log('users')
             if( this._modalUploadService.id == this._userService.user._id ) {
               this._userService.user.img = result.user.img
               this._userService.saveStorageUser( this._modalUploadService.id , this._userService.user , this._userService.token )
             }
           }
+          console.log('pasooo por aquii')
+          console.log( result )
           this._modalUploadService.notification.emit( result )
           this.closeModal()
         })
-        .catch( err => console.error('Error en la carga'))
+        .catch( err => console.error('Error en la carga' ,  err))
   }
 
   // ==========================================

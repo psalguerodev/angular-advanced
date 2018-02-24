@@ -1,5 +1,5 @@
 import { HospitalService } from '../../services/hospital/hospital.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Hospital } from '../../models/hospital.model';
 import { ModalUploadService } from '../../components/upload/modal-upload.service';
 import swal from 'sweetalert2'
@@ -9,7 +9,7 @@ import swal from 'sweetalert2'
   templateUrl: './hospitals.component.html',
   styles: []
 })
-export class HospitalsComponent implements OnInit {
+export class HospitalsComponent implements OnInit , OnDestroy{
 
   hospitals : Hospital[] = []
   loading : boolean = true
@@ -24,8 +24,13 @@ export class HospitalsComponent implements OnInit {
     this.loadHostpitals()
 
     this._modalUploadService.notification.subscribe( (resolve : any) => {
-      if( resolve.ok ) this.loadHostpitals()
+      if( resolve.ok && resolve.hospital ) this.loadHostpitals()
+
     })
+  }
+
+  ngOnDestroy() {
+
   }
 
   // ==========================================

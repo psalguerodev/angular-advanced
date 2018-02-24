@@ -1,6 +1,6 @@
 import { ModalUploadService } from './../../components/upload/modal-upload.service';
 import { UserService } from './../../services/service.index';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , OnDestroy} from '@angular/core';
 import { User } from '../../models/user.model';
 import swal from 'sweetalert2'
 
@@ -9,7 +9,7 @@ import swal from 'sweetalert2'
   templateUrl: './users.component.html',
   styles: []
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit , OnDestroy {
 
   users : User[] = []
   since : number = 0
@@ -23,10 +23,15 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.loadUsers()
     this._modalUploadService.notification.subscribe( (result : any) => {
-      if( result.ok == true ) {
+      if( result.ok == true && result.user ) {
         this.loadUsers()
+
       }
     })
+  }
+
+  ngOnDestroy() {
+
   }
 
   // ==========================================
