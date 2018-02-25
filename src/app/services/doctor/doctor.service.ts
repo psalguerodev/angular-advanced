@@ -40,7 +40,10 @@ export class DoctorService {
   // ==========================================
   public updateDocById( doctor : Doctor ) {
     const url = URL_SERIVES + "/doctor/" + doctor._id + "?token=" + this._userS.token
-    return this._http.put( url , doctor )
+    return this._http.put( url , doctor ).map( (result:any) => {
+      swal('Fantástico' , 'Se ha actualizado al doctor ' + doctor.name + " !" , 'success')
+      return result
+    })
   }
 
   // ==========================================

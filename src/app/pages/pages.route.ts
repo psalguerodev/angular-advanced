@@ -1,3 +1,4 @@
+import { AdminGuard } from './../services/guards/admin.guard';
 import { DoctorComponent } from './doctor.component';
 import { LoginGuardGuard } from './../services/service.index';
 import { RxjsComponent } from './rxjs/rxjs.component';
@@ -12,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { DoctorsComponent } from './doctors/doctors.component';
+import { FinderComponent } from './finder/finder.component';
 
 const pagesRoutes : Routes = [
   {
@@ -26,9 +28,15 @@ const pagesRoutes : Routes = [
       { path: 'promises' ,     component: PromisesComponent  ,  data: { title: 'Promesas' } },
       { path: 'rxjs' ,         component: RxjsComponent      ,  data: { title: 'Rxjs' } },
       { path: 'account-settings' ,     component: AcountsettingsComponent, data: { title: 'Ajustes de Tema'} },
+      { path: 'finder/:find' ,     component: FinderComponent, data: { title: 'Buscador de collecciones'} },
 
       //	Rutas personalizadas del Sistema
-      { path: 'users' ,     component: UsersComponent, data: { title: 'Mantenimiento de Usuarios'} },
+      {
+        path: 'users' ,
+        component: UsersComponent,
+        data: { title: 'Mantenimiento de Usuarios'} ,
+        canActivate : [AdminGuard]
+      },
       { path: 'hospitals' ,     component: HospitalsComponent, data: { title: 'Mantenimiento de Hospitales'} },
       { path: 'doctors' ,     component: DoctorsComponent, data: { title: 'Mantenimiento de Doctores'} },
       { path: 'doctor/:id' ,     component: DoctorComponent, data: { title: 'Mantenimiento del Doctor'} },

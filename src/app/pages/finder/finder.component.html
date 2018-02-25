@@ -1,0 +1,131 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h3>
+          <i class="fa fa-search"></i> Buscando...</h3>
+        <input (keyup)="findCollections()"  name="finder" id="finder" [(ngModel)]="findText" class="form-control">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h3>
+          <i class="fa fa-database"></i> Resultados</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <!-- Usuarios -->
+    <div class="card">
+      <div class="card-body">
+        <h4>Usuarios</h4>
+
+        <!-- Tabla de informacion -->
+        <table class="table table-hover" *ngIf="users.length > 0">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Descripcion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>
+                <img [src]="user.img | image:'users'" [alt]="user.name" class="img img-circle" width="40px">
+              </td>
+              <td>
+                <a href="#" [routerLink]="'/users'">{{ user.name }} </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Si no hay registros -->
+        <div class="alert alert-info" *ngIf="users.length == 0">
+          No hay registros
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Hospitales -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h4>Hospitales</h4>
+
+        <!-- Tabla de informacion -->
+        <table class="table table-hover" *ngIf="hospitals.length > 0">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Descripcion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let hospital of hospitals" >
+              <td>
+                <img [src]="hospital.img | image:'hospitals'" [alt]="hospital.name" class="img img-circle" width="40px">
+              </td>
+              <td>
+                <a href="#" [routerLink]="['/hospitals']">{{ hospital.name }} </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Si no hay registros -->
+        <div class="alert alert-info" *ngIf="hospitals.length == 0">
+            No hay registros
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Medicos -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h4>Medicos</h4>
+        <!-- Tabla de informacion -->
+        <table class="table table-hover" *ngIf="doctors.length > 0">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Descripcion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doctor of doctors">
+              <td>
+                <img [src]="doctor.img | image:'doctors'" [alt]="doctor.name" class="img img-circle" width="40px">
+              </td>
+              <td>
+                <a href="#" [routerLink]="['/doctor', doctor._id]">{{ doctor.name }} </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Si no hay registros -->
+        <div class="alert alert-info" *ngIf="doctors.length == 0">
+            No hay registros
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

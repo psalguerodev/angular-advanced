@@ -24,10 +24,11 @@ import { UsersComponent } from './users/users.component';
 import { UploadComponent } from '../components/upload/upload.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { DoctorsComponent } from './doctors/doctors.component';
+import { DoctorComponent } from './doctor.component';
+import { FinderComponent } from './finder/finder.component';
 
 /* ===================[PIPES]====================== */
 import { PipesModule } from '../pipes/pipes.module';
-import { DoctorComponent } from './doctor.component';
 
 
 
@@ -47,7 +48,8 @@ import { DoctorComponent } from './doctor.component';
     UploadComponent,
     HospitalsComponent,
     DoctorsComponent,
-    DoctorComponent
+    DoctorComponent,
+    FinderComponent
   ],
   exports : [
     DashboardComponent,

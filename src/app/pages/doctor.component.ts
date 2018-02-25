@@ -40,6 +40,8 @@ export class DoctorComponent implements OnInit , OnDestroy {
       }
     })
 
+    console.log( this.doctor )
+
   }
 
   ngOnDestroy() {
@@ -53,6 +55,7 @@ export class DoctorComponent implements OnInit , OnDestroy {
     this._activedRoute.params.subscribe( (params:any) => {
       if( params.id === 'nuevo' ) {
         this._id = null
+        this.hospital._id = ''
         return
       }
 
@@ -76,12 +79,18 @@ export class DoctorComponent implements OnInit , OnDestroy {
   // Guardar un nuevo medico
   // ==========================================
   public saveDoc( form : NgForm ) {
-    console.log( form.valid )
-    console.log( form.value )
-    this._doctorS.saveDoc( this.doctor ).subscribe( (result:any) => {
-      this.doctor._id = result.doctor._id
-      this._router.navigate(['/doctor', result.doctor._id ])
-    })
+
+    //	Registrando un nuevo doctor
+    if( this._id === null ) {
+      this._doctorS.saveDoc( this.doctor ).subscribe( (result:any) => {
+        this.doctor._id = result.doctor._id
+        this._router.navigate(['/doctor', result.doctor._id ])
+      })
+    } else {
+      //	Actualizando el doctor
+      this._doctorS.updateDocById( this.doctor ).subscribe( (result:any) => {})
+    }
+
 
   }
 
