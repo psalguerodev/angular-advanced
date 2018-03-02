@@ -24,9 +24,28 @@ export class UserService {
   }
 
   // ==========================================
+  // Crear un nuevo token a partir del token
+  // ==========================================
+  public renewToken() {
+    let url = URL_SERIVES + "/login/renewtoken?token=" + this.token
+    return this.http.post( url , {} ).map( (p:any) => {
+      console.log( p )
+      this.token = p.token
+      localStorage.setItem( 'current_user_token' , this.token )
+      console.log( 'Token renovado' )
+      return true
+    }).catch( err  => {
+      swal('Sessión expirada' , 'Por favor inicie sesión nuevamente' , 'error')
+      this.logoutUser()
+      return Observable.throw( err )
+    })
+  }
+
+
+  // ==========================================
   // Registrar Usuario
   // ==========================================
-  registerUser( user : User ) {
+  public registerUser( user : User ) {
     let url = URL_SERIVES + "/user"
     return this.http.post( url , user ).map( ( result : any ) => {
       swal("Regitro correcto!","El correo <b>" + result.user.email + "</b> se ha registrado con éxito" ,"success")

@@ -10,31 +10,28 @@ import { ChartsModule } from 'ng2-charts'
 import { Grapth1Component } from './grapth1/grapth1.component'
 import { ProgressComponent } from './progress/progress.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
-import { PagesComponent } from './pages.component'
 
 /* ===================[ROUTES]====================== */
 import { PAGES_ROUTES } from './pages.route'
 import { IncrementComponent } from '../components/increment/increment.component'
 import { GraphdoughnutComponent } from './../components/graphdoughnut/graphdoughnut.component'
-import { AcountsettingsComponent } from './acountsettings/acountsettings.component';
-import { PromisesComponent } from './promises/promises.component';
+import { AcountsettingsComponent } from './acountsettings/acountsettings.component'
+import { PromisesComponent } from './promises/promises.component'
 import { RxjsComponent } from './rxjs/rxjs.component'
-import { ProfileComponent } from './profile/profile.component';
-import { UsersComponent } from './users/users.component';
-import { UploadComponent } from '../components/upload/upload.component';
-import { HospitalsComponent } from './hospitals/hospitals.component';
-import { DoctorsComponent } from './doctors/doctors.component';
-import { DoctorComponent } from './doctor.component';
-import { FinderComponent } from './finder/finder.component';
+import { ProfileComponent } from './profile/profile.component'
+import { UsersComponent } from './users/users.component'
+import { HospitalsComponent } from './hospitals/hospitals.component'
+import { DoctorsComponent } from './doctors/doctors.component'
+import { DoctorComponent } from './doctor.component'
+import { FinderComponent } from './finder/finder.component'
 
 /* ===================[PIPES]====================== */
-import { PipesModule } from '../pipes/pipes.module';
+import { PipesModule } from '../pipes/pipes.module'
 
 
 
 @NgModule({
   declarations : [
-    PagesComponent,
     DashboardComponent,
     ProgressComponent,
     Grapth1Component,
@@ -45,7 +42,6 @@ import { PipesModule } from '../pipes/pipes.module';
     RxjsComponent,
     ProfileComponent,
     UsersComponent,
-    UploadComponent,
     HospitalsComponent,
     DoctorsComponent,
     DoctorComponent,

@@ -69,7 +69,8 @@ export class UploadComponent implements OnInit {
             console.log('users')
             if( this._modalUploadService.id == this._userService.user._id ) {
               this._userService.user.img = result.user.img
-              this._userService.saveStorageUser( this._modalUploadService.id , this._userService.user , this._userService.token )
+              this._userService
+              .saveStorageUser( this._modalUploadService.id , this._userService.user , this._userService.token , this._userService.menu )
             }
           }
           console.log('pasooo por aquii')

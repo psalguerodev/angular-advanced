@@ -1,3 +1,4 @@
+export { VerifytokenGuard } from './guards/verifytoken.guard';
 export { AdminGuard } from './guards/admin.guard';
 export { LoginGuardGuard } from './guards/login-guard.guard';
 export { DoctorService } from './doctor/doctor.service';
